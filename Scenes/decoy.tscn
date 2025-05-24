@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://dpi4p18psjy7y"]
+
+[ext_resource type="Shader" uid="uid://fjkiq4g62cp5" path="res://Shaders/decoy.gdshader" id="1_1y3rk"]
+[ext_resource type="Texture2D" uid="uid://dtla2ui1vgnh2" path="res://Assets/Characters/Manny/T_UE4Robot_Run_D.TGA" id="1_627su"]
+[ext_resource type="Script" uid="uid://2k7m5fi21xev" path="res://Scripts/Decoy/decoy.gd" id="1_kgky4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgky4"]
+shader = ExtResource("1_1y3rk")
+shader_parameter/flash_speed = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y3rk"]
+atlas = ExtResource("1_627su")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgky4"]
+atlas = ExtResource("1_627su")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwpcc"]
+atlas = ExtResource("1_627su")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1s3q"]
+atlas = ExtResource("1_627su")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qerbo"]
+atlas = ExtResource("1_627su")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ha2p"]
+atlas = ExtResource("1_627su")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5ekv"]
+atlas = ExtResource("1_627su")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkjyj"]
+atlas = ExtResource("1_627su")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8r1l"]
+atlas = ExtResource("1_627su")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uaah"]
+atlas = ExtResource("1_627su")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffwyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgky4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwpcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1s3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qerbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ha2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5ekv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkjyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8r1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uaah")
+}],
+"loop": true,
+"name": &"Decoy Run",
+"speed": 20.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_kgky4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+texture_filter = 1
+material = SubResource("ShaderMaterial_kgky4")
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ffwyh")
+animation = &"Decoy Run"
+frame_progress = 0.021552
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
