@@ -17,9 +17,10 @@ var shake_duration = 0.2
 var cam_original_pos = Vector2.ZERO
 
 const START_SPEED: float = 10.0
-const MAX_SPEED: int = 25
+const MAX_SPEED: float = 15.0
 const FLOOR_Y = 1015
 const CEILING_Y =230
+const SCORE_MODIFIER: int = 50
 
 func _ready():
 	cam_original_pos = $Camera2D.position
@@ -39,7 +40,11 @@ func new_game():
 	pass
 
 func _process(delta):
+	score += speed
 	if game_running:
+		speed = START_SPEED + score / 5000
+		if speed > MAX_SPEED:
+			speed = MAX_SPEED
 		show_score()
 		$Player.position.x += speed
 		$Camera2D.position.x += speed
@@ -62,19 +67,11 @@ func _process(delta):
 		pass
 
 func show_score():
-	$HUD.get_node("Score Label").text = "SCORE: " + str(score)
+	$HUD.get_node("Score Label").text = "SCORE: " + str(score / SCORE_MODIFIER)
 	pass
 
 func start_shake():
 	shake_timer = shake_duration
-
-func _on_score_timer_timeout() -> void:
-	score += 1
-	
-	speed = min(START_SPEED + int(score / 10) * 5, MAX_SPEED)
-	show_score()
-	pass
-
 
 func _on_spawn_timer_timeout() -> void:
 	var spike = spikes_scene.instantiate()
@@ -82,7 +79,7 @@ func _on_spawn_timer_timeout() -> void:
 	var sprite_height = spike_sprite.texture.get_size().y
 	var spawn_x = $Camera2D.position.x + screen_size.x
 
-	if randi() % 2 == 0:
+	if randi() % 3 == 0:
 		# Ground
 		spike.position = Vector2(spawn_x, FLOOR_Y - sprite_height / 2)
 	else:
