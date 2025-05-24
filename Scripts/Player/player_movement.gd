@@ -16,6 +16,9 @@ var on_ceiling = false
 const FLOOR_Y = 936
 const CEILING_Y = 305
 
+func _ready():
+	timer.timeout.connect(_on_blink_timer)
+
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		teleport()	
@@ -32,7 +35,6 @@ func teleport():
 	
 	on_ceiling = !on_ceiling
 	sprite.visible = false
-	timer.timeout.connect(_on_blink_timer)
 	
 	# Spawn lightning VFX
 	var vfx = lightning.instantiate()
@@ -50,7 +52,7 @@ func teleport():
 	get_parent().start_shake()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not get_parent().game_running:
 		$AnimatedSprite2D.play("Idle")
 		pass
