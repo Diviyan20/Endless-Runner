@@ -18,7 +18,7 @@ var shake_duration = 0.2
 var cam_original_pos = Vector2.ZERO
 
 const START_SPEED: float = 10.0
-const MAX_SPEED: float = 15.0
+const MAX_SPEED: float = 20.0
 const FLOOR_Y = 1015
 const CEILING_Y =230
 const SCORE_MODIFIER: int = 50

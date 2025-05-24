@@ -108,7 +108,7 @@ func _on_restart_mouse_entered():
 
 func _on_quit_pressed():
 	$Click_Sound.play()
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_quit_mouse_entered():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl4sex851qng4"]
+[gd_scene load_steps=8 format=3 uid="uid://bl4sex851qng4"]
 
 [ext_resource type="Script" uid="uid://c4o35k0qgol1i" path="res://Scripts/Main_Map/main_map.gd" id="1_rkqr0"]
 [ext_resource type="PackedScene" uid="uid://b6mv7k8i1r4np" path="res://Scenes/background.tscn" id="1_rosm5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dq4srb6ui0oa" path="res://Scenes/player.tscn" id="3_0vog1"]
 [ext_resource type="PackedScene" uid="uid://dpi4p18psjy7y" path="res://Scenes/decoy.tscn" id="5_a7tq8"]
 [ext_resource type="PackedScene" uid="uid://b3488rsceltox" path="res://Scenes/hud.tscn" id="6_a7tq8"]
+[ext_resource type="AudioStream" uid="uid://cfnkfelsefgqj" path="res://Assets/Music/Pix- Alien wolves.mp3" id="7_dpsgj"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_rkqr0")
@@ -32,6 +33,10 @@ autostart = true
 
 [node name="Spawn Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Game BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dpsgj")
+autoplay = true
 
 [connection signal="timeout" from="Score Timer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Spawn Timer" to="." method="_on_spawn_timer_timeout"]
