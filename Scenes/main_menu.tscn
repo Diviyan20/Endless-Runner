@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://gtbrirjr6mpx"]
+[gd_scene load_steps=8 format=3 uid="uid://gtbrirjr6mpx"]
 
+[ext_resource type="Script" uid="uid://b4d6dwyms354v" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://oep606el4fm3" path="res://Assets/UI/Main Menu/9.png" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://biyyhg4daxaea" path="res://Assets/UI/Fonts/dogicapixel.ttf" id="2_48xlc"]
 
@@ -38,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1ehe0")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -64,34 +66,31 @@ grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Play Button" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_font_sizes/font_size = 45
 theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "PLAY"
 
-[node name="Options Button" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_font_sizes/font_size = 45
 theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "OPTIONS"
 
-[node name="Exit Button" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_font_sizes/font_size = 45
 theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "EXIT"
 
-[node name="Game Title" type="Label" parent="."]
+[node name="GameTitle" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
