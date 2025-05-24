@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://gtbrirjr6mpx"]
+
+[ext_resource type="Texture2D" uid="uid://oep606el4fm3" path="res://Assets/UI/Main Menu/9.png" id="1_28flt"]
+[ext_resource type="FontFile" uid="uid://biyyhg4daxaea" path="res://Assets/UI/Fonts/dogicapixel.ttf" id="2_48xlc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48xlc"]
+texture = ExtResource("1_28flt")
+modulate_color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
+bg_color = Color(0.0124112, 0.0907862, 0.216697, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
+bg_color = Color(0.00708588, 0.0604079, 0.160076, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
+bg_color = Color(0.0194818, 0.120913, 0.272841, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_48xlc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -127.5
+offset_right = 130.0
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Play Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "PLAY"
+
+[node name="Options Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "OPTIONS"
+
+[node name="Exit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "EXIT"
+
+[node name="Game Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.044
+anchor_right = 0.804
+anchor_bottom = 0.207
+offset_left = 192.0
+offset_top = 0.479996
+offset_right = -191.68
+offset_bottom = -1.56001
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 15
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 127
+text = "Echo Runner"
+horizontal_alignment = 1
+vertical_alignment = 1
