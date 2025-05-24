@@ -67,10 +67,12 @@ func stop_burst():
 func start_glitch():
 	is_glitching = true
 	glitch_timer = 0.0
+	$Glitch_Sound.play()
 	title_label.text = get_glitched_text(original_title_text)
 	await get_tree().create_timer(glitch_duration).timeout
 	title_label.text = original_title_text
 	is_glitching = false
+	$Glitch_Sound.stop()
 
 func get_glitched_text(base: String) -> String:
 	var chars = base.split("")
@@ -98,22 +100,18 @@ func _on_play_pressed():
 	$Click_Sound.play()
 	get_tree().change_scene_to_file("res://Scenes/Main Map.tscn")
 
-
 func _on_play_mouse_entered():
 	$"Hover_Sound".play()
-
 
 func _on_options_pressed():
 	$Click_Sound.play()
 
-
 func _on_options_mouse_entered():
 	$"Hover_Sound".play()
 
-
 func _on_exit_pressed():
 	$Click_Sound.play()
-
+	get_tree().quit()
 
 func _on_exit_mouse_entered():
 	$"Hover_Sound".play()
