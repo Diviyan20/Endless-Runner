@@ -93,3 +93,27 @@ func _on_button_mouse_entered(button: Button):
 func _on_button_mouse_exited(button: Button):
 	if button.has_meta("original_text"):
 		button.text = button.get_meta("original_text")
+
+func _on_play_pressed():
+	$Click_Sound.play()
+	get_tree().change_scene_to_file("res://Scenes/Main Map.tscn")
+
+
+func _on_play_mouse_entered():
+	$"Hover_Sound".play()
+
+
+func _on_options_pressed():
+	$Click_Sound.play()
+
+
+func _on_options_mouse_entered():
+	$"Hover_Sound".play()
+
+
+func _on_exit_pressed():
+	$Click_Sound.play()
+
+
+func _on_exit_mouse_entered():
+	$"Hover_Sound".play()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://gtbrirjr6mpx"]
+[gd_scene load_steps=11 format=3 uid="uid://gtbrirjr6mpx"]
 
 [ext_resource type="Script" uid="uid://b4d6dwyms354v" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://oep606el4fm3" path="res://Assets/UI/Main Menu/9.png" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://biyyhg4daxaea" path="res://Assets/UI/Fonts/dogicapixel.ttf" id="2_48xlc"]
 [ext_resource type="Shader" uid="uid://b7cyohpt34a62" path="res://Scripts/UI/Shaders/parallax.gdshader" id="2_ce3w2"]
+[ext_resource type="AudioStream" uid="uid://cwia1ub16axdc" path="res://Assets/SFX/Click Sound.mp3" id="5_n45e2"]
+[ext_resource type="AudioStream" uid="uid://b8ujdd1or218u" path="res://Assets/SFX/Hover Sound.mp3" id="6_opfnp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
 shader = ExtResource("2_ce3w2")
@@ -114,3 +116,16 @@ theme_override_font_sizes/font_size = 127
 text = "Echo Runner"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Click_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n45e2")
+
+[node name="Hover_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_opfnp")
+
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
