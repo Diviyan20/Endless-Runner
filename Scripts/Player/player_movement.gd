@@ -58,6 +58,10 @@ func _physics_process(_delta):
 		pass
 	else:
 		$AnimatedSprite2D.play("Run")
+		if $Footstep_Timer.time_left <= 0:
+			$Footstep_Sound.pitch_scale = randf_range(0.8, 1.2)
+			$Footstep_Sound.play()
+			$Footstep_Timer.start(0.26)
 
 func _on_blink_timer():
 	sprite.visible = true

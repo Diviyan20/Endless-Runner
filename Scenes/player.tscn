@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://dq4srb6ui0oa"]
+[gd_scene load_steps=31 format=3 uid="uid://dq4srb6ui0oa"]
 
 [ext_resource type="Texture2D" uid="uid://jbl80bv2rnd7" path="res://Assets/Characters/Manny/T_UE4Robot_IdleStand_D.TGA" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dtla2ui1vgnh2" path="res://Assets/Characters/Manny/T_UE4Robot_Run_D.TGA" id="2_6t5aa"]
 [ext_resource type="Shader" uid="uid://b3qx46mrcvgqp" path="res://Shaders/hit_reaction.tres" id="2_fkybt"]
 [ext_resource type="Script" uid="uid://hxy2h2c0vani" path="res://Scripts/Player/player_movement.gd" id="3_6t5aa"]
 [ext_resource type="AudioStream" uid="uid://be6dpv2hj78ry" path="res://Assets/SFX/Teleport Sound.mp3" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://bl5h3gijqfdo1" path="res://Assets/SFX/Footstep.mp3" id="6_x3wgy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3wgy"]
 shader = ExtResource("2_fkybt")
@@ -221,5 +222,12 @@ stream = ExtResource("4_vgqql")
 libraries = {
 &"": SubResource("AnimationLibrary_f1ek2")
 }
+
+[node name="Footstep_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Footstep_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_x3wgy")
+volume_db = -20.0
 
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
