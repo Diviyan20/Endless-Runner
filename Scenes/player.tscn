@@ -143,18 +143,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi64h"]
-size = Vector2(25, 53)
+size = Vector2(88, 172)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_wpjfl")
-animation = &"Run"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 1
-frame_progress = 0.124311
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_bi64h")
