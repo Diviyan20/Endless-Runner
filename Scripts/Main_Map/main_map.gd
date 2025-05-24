@@ -7,6 +7,7 @@ var spikes_scene = preload("res://Scenes/spikes.tscn")
 
 var speed : float
 var score: int
+var health: float = 5.0
 var screen_size: Vector2i
 var game_running: bool
 var spawn_on_ground: = true
@@ -95,8 +96,12 @@ func _on_spawn_timer_timeout() -> void:
 func _on_spike_body_entered(body):
 	if body.name=="Player":
 		$Player.get_node("Hit_Flash").play("hit_flash")
+		health -= 1.0
+		if health <= 0.0:
+			game_over()
 
 func game_over():
 	$Player.get_node("AnimatedSprite2D").show()
 	get_tree().paused = true
 	game_running = false
+	$Player.queue_free()

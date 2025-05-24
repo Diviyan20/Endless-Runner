@@ -31,7 +31,6 @@ position = Vector2(960, 536)
 autostart = true
 
 [node name="Spawn Timer" type="Timer" parent="."]
-wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Score Timer" to="." method="_on_score_timer_timeout"]
