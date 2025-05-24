@@ -94,7 +94,7 @@ func _on_spawn_timer_timeout() -> void:
 
 func _on_spike_body_entered(body):
 	if body.name=="Player":
-		game_over()
+		$Player.get_node("Hit_Flash").play("hit_flash")
 
 func game_over():
 	$Player.get_node("AnimatedSprite2D").show()

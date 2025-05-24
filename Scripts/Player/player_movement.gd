@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var lightning = preload("res://Scenes/lightning.tscn")
 @onready var ghost_timer = $GhostTimer
 @onready var teleport_sound: AudioStreamPlayer2D = $Teleport_Sound
+@onready var hit_flash: AnimationPlayer = $Hit_Flash
 
 @export var ghost_node:PackedScene
 
