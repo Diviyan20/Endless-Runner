@@ -20,3 +20,10 @@ func teleport():
 		sprite.flip_v = true
 
 	on_ceiling = !on_ceiling
+
+func _physics_process(delta):
+	if not get_parent().game_running:
+		$AnimatedSprite2D.play("Idle")
+		pass
+	else:
+		$AnimatedSprite2D.play("Run")
