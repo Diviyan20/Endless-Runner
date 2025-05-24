@@ -1,0 +1,156 @@
+[gd_scene load_steps=15 format=3 uid="uid://dg6uv8h4775mk"]
+
+[ext_resource type="Shader" uid="uid://b7cyohpt34a62" path="res://Scripts/UI/Shaders/parallax.gdshader" id="1_8fo1c"]
+[ext_resource type="Script" uid="uid://rkww68u3ca02" path="res://Scripts/UI/game_over.gd" id="1_eoghk"]
+[ext_resource type="Texture2D" uid="uid://oep606el4fm3" path="res://Assets/UI/Main Menu/9.png" id="2_ek8ke"]
+[ext_resource type="FontFile" uid="uid://biyyhg4daxaea" path="res://Assets/UI/Fonts/dogicapixel.ttf" id="3_ek8ke"]
+[ext_resource type="AudioStream" uid="uid://cm8ptx2h7wfrs" path="res://Assets/SFX/Text Glitch Sound.mp3" id="5_14u15"]
+[ext_resource type="AudioStream" uid="uid://b8ujdd1or218u" path="res://Assets/SFX/Hover Sound.mp3" id="5_rjluv"]
+[ext_resource type="AudioStream" uid="uid://cwia1ub16axdc" path="res://Assets/SFX/Click Sound.mp3" id="7_gjtdd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eoghk"]
+shader = ExtResource("1_8fo1c")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14u15"]
+bg_color = Color(0.0131689, 0.0944318, 0.223491, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3ryr"]
+bg_color = Color(0.0076822, 0.0643626, 0.167446, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjluv"]
+bg_color = Color(0.0194818, 0.120913, 0.272841, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjtdd"]
+bg_color = Color(0.0124112, 0.0907862, 0.216697, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uylih"]
+bg_color = Color(0.0109586, 0.0834155, 0.202959, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3817r"]
+bg_color = Color(0.0194818, 0.120913, 0.272841, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0153957, 0.836431, 0.913236, 1)
+
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eoghk")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(0.408329, 0.408329, 0.408329, 1)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_eoghk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ek8ke")
+expand_mode = 2
+
+[node name="GameOver" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.183
+anchor_top = 0.17
+anchor_right = 0.821
+anchor_bottom = 0.341
+offset_left = 0.639984
+offset_top = 0.399994
+offset_right = -4.32007
+offset_bottom = -0.280029
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 36
+theme_override_fonts/font = ExtResource("3_ek8ke")
+theme_override_font_sizes/font_size = 160
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.433
+anchor_top = 0.461
+anchor_right = 0.567
+anchor_bottom = 0.579
+offset_left = 0.639954
+offset_top = 5.11996
+offset_right = -0.640015
+offset_bottom = -0.320068
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_ek8ke")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/hover = SubResource("StyleBoxFlat_14u15")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j3ryr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rjluv")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_ek8ke")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_gjtdd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uylih")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3817r")
+text = "Quit"
+
+[node name="Hover_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rjluv")
+
+[node name="Glitch_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_14u15")
+
+[node name="Click_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gjtdd")
+
+[connection signal="mouse_entered" from="VBoxContainer/Restart" to="." method="_on_restart_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -109,4 +109,4 @@ func game_over():
 	$Player.get_node("AnimatedSprite2D").show()
 	get_tree().paused = true
 	game_running = false
-	$Player.queue_free()
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
