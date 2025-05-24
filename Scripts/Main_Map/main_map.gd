@@ -73,19 +73,27 @@ func show_score():
 func start_shake():
 	shake_timer = shake_duration
 
+
+
 func _on_spawn_timer_timeout() -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
 	var spike = spikes_scene.instantiate()
 	var spike_sprite = spike.get_node("Sprite2D")
 	var sprite_height = spike_sprite.texture.get_size().y
-	var spawn_x = $Camera2D.position.x + screen_size.x
+	
+	# Randomize horizontal offset slightly
+	var spawn_x = $Camera2D.position.x + screen_size.x + rng.randf_range(0.0, 100.0)
 
-	if randi() % 3 == 0:
-		# Ground
-		spike.position = Vector2(spawn_x, FLOOR_Y - sprite_height / 2)
-	else:
-		# Ceiling
+	# Randomize ceiling vs ground with 50-50 chance, but allow more nuance if desired
+	var is_ceiling = rng.randi_range(0, 1) == 1
+
+	if is_ceiling:
 		spike.position = Vector2(spawn_x, CEILING_Y + sprite_height / 2)
 		spike_sprite.flip_v = true
+	else:
+		spike.position = Vector2(spawn_x, FLOOR_Y - sprite_height / 2)
+		spike_sprite.flip_v = false
 	
 	spike.body_entered.connect(_on_spike_body_entered)
 	add_child(spike)
