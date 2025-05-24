@@ -1,33 +1,40 @@
-[gd_scene format=3 uid="uid://b3488rsceltox"]
+[gd_scene load_steps=2 format=3 uid="uid://b3488rsceltox"]
+
+[ext_resource type="FontFile" uid="uid://biyyhg4daxaea" path="res://Assets/UI/Fonts/dogicapixel.ttf" id="1_e0onf"]
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="Score Label" type="Label" parent="."]
+texture_filter = 1
 anchors_preset = -1
-anchor_left = 0.004
-anchor_top = 0.23
-anchor_right = 0.004
-anchor_bottom = 0.23
-offset_left = 0.32
-offset_top = -0.400009
-offset_right = 60.32
-offset_bottom = 22.6
+anchor_top = 0.022
+anchor_bottom = 0.022
+offset_top = 0.239998
+offset_right = 160.0
+offset_bottom = 40.24
 size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("1_e0onf")
+theme_override_font_sizes/font_size = 28
 text = "SCORE: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="High Score Label2" type="Label" parent="."]
+[node name="High Score Label" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.004
-anchor_top = 0.274
-anchor_right = 0.004
-anchor_bottom = 0.274
-offset_left = 0.32
-offset_top = 0.0799866
-offset_right = 104.32
-offset_bottom = 23.08
+anchor_top = 0.074
+anchor_bottom = 0.074
+offset_top = 0.0800018
+offset_right = 256.0
+offset_bottom = 56.08
+grow_horizontal = 0
+grow_vertical = 2
 size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("1_e0onf")
+theme_override_font_sizes/font_size = 28
 text = "HIGH SCORE: "
 horizontal_alignment = 1
 vertical_alignment = 1

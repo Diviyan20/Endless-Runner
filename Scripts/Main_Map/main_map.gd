@@ -7,6 +7,7 @@ var spikes_scene = preload("res://Scenes/spikes.tscn")
 
 var speed : float
 var score: int
+var high_score: int
 var health: float = 5.0
 var screen_size: Vector2i
 var game_running: bool
@@ -32,6 +33,7 @@ func new_game():
 	#reset all variables
 	score = 0
 	show_score()
+	check_high_score()
 	game_running = false
 	$Player.position = PLAYER_START_POS
 	$Player.velocity = Vector2i(0,0)
@@ -70,10 +72,13 @@ func show_score():
 	$HUD.get_node("Score Label").text = "SCORE: " + str(score / SCORE_MODIFIER)
 	pass
 
+func check_high_score():
+	if score > high_score:
+		high_score = score
+	$HUD.get_node("High Score Label").text = "HIGH SCORE: " + str(score / SCORE_MODIFIER)
+
 func start_shake():
 	shake_timer = shake_duration
-
-
 
 func _on_spawn_timer_timeout() -> void:
 	var rng := RandomNumberGenerator.new()
@@ -106,6 +111,7 @@ func _on_spike_body_entered(body):
 			game_over()
 
 func game_over():
+	check_high_score()
 	$Player.get_node("AnimatedSprite2D").show()
 	get_tree().paused = true
 	game_running = false
