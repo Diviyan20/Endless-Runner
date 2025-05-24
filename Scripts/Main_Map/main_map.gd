@@ -67,11 +67,12 @@ func _on_spawn_timer_timeout() -> void:
 	var sprite_height = spike_sprite.texture.get_size().y
 	var spawn_x = $Camera2D.position.x + screen_size.x
 
-	if spawn_on_ground:
+	if randi() % 2 == 0:
+		# Ground
 		spike.position = Vector2(spawn_x, FLOOR_Y - sprite_height / 2)
 	else:
+		# Ceiling
 		spike.position = Vector2(spawn_x, CEILING_Y + sprite_height / 2)
 		spike_sprite.flip_v = true
 
 	add_child(spike)
-	spawn_on_ground = !spawn_on_ground  # Flip for next time
