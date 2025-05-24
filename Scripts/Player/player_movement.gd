@@ -21,6 +21,10 @@ func teleport():
 
 	on_ceiling = !on_ceiling
 
+	# Trigger camera shake from parent
+	get_parent().start_shake()
+
+
 func _physics_process(delta):
 	if not get_parent().game_running:
 		$AnimatedSprite2D.play("Idle")

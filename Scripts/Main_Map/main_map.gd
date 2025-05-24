@@ -10,6 +10,10 @@ var score: int
 var screen_size: Vector2i
 var game_running: bool
 var spawn_on_ground: = true
+var shake_timer = 0.0
+var shake_strength = 4.0
+var shake_duration = 0.2
+var cam_original_pos = Vector2.ZERO
 
 const START_SPEED: float = 10.0
 const MAX_SPEED: int = 25
@@ -17,6 +21,7 @@ const FLOOR_Y = 1015
 const CEILING_Y =230
 
 func _ready():
+	cam_original_pos = $Camera2D.position
 	screen_size = get_window().size
 	new_game()
 	pass
@@ -32,26 +37,35 @@ func new_game():
 	$HUD.get_node("Play").show()
 	pass
 
-func _process(_delta):
+func _process(delta):
 	if game_running:
 		show_score()
 		$Player.position.x += speed
 		$Camera2D.position.x += speed
-		
-		#update ground position
-		if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
+	
+	if shake_timer > 0:
+		shake_timer -= delta
+		$Camera2D.offset = Vector2(
+			randf_range(-shake_strength, shake_strength),
+			randf_range(-shake_strength, shake_strength)
+		)
+	else:
+		$Camera2D.offset = Vector2.ZERO
+	if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 			$Ground.position.x +=screen_size.x
 			$Ceiling.position.x +=screen_size.x
-	else:
-		if Input.is_action_just_pressed("ui_accept"):
-			game_running = true
-			$HUD.get_node("Play").hide()
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		game_running = true
+		$HUD.get_node("Play").hide()
 		pass
 
 func show_score():
 	$HUD.get_node("Score Label").text = "SCORE: " + str(score)
 	pass
 
+func start_shake():
+	shake_timer = shake_duration
 
 func _on_score_timer_timeout() -> void:
 	score += 1
