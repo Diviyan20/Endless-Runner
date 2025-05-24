@@ -74,5 +74,14 @@ func _on_spawn_timer_timeout() -> void:
 		# Ceiling
 		spike.position = Vector2(spawn_x, CEILING_Y + sprite_height / 2)
 		spike_sprite.flip_v = true
-
+	
+	spike.body_entered.connect(_on_spike_body_entered)
 	add_child(spike)
+
+func _on_spike_body_entered(body):
+	if body.name=="Player":
+		game_over()
+
+func game_over():
+	get_tree().paused = true
+	game_running = false
