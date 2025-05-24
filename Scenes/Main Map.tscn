@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl4sex851qng4"]
+[gd_scene load_steps=7 format=3 uid="uid://bl4sex851qng4"]
 
 [ext_resource type="Script" uid="uid://c4o35k0qgol1i" path="res://Scripts/Main_Map/main_map.gd" id="1_rkqr0"]
 [ext_resource type="PackedScene" uid="uid://b6mv7k8i1r4np" path="res://Scenes/background.tscn" id="1_rosm5"]
 [ext_resource type="PackedScene" uid="uid://b3pufbef10eg1" path="res://Scenes/ground.tscn" id="2_rlthf"]
 [ext_resource type="PackedScene" uid="uid://dq4srb6ui0oa" path="res://Scenes/player.tscn" id="3_0vog1"]
 [ext_resource type="Script" uid="uid://hxy2h2c0vani" path="res://Scripts/Player/player_movement.gd" id="4_teiu1"]
+[ext_resource type="PackedScene" uid="uid://b3488rsceltox" path="res://Scenes/hud.tscn" id="6_a7tq8"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_rkqr0")
@@ -23,3 +24,11 @@ script = ExtResource("4_teiu1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 536)
+
+[node name="HUD" parent="." instance=ExtResource("6_a7tq8")]
+
+[node name="Score Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Score Timer" to="." method="_on_score_timer_timeout"]
