@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6mv7k8i1r4np" path="res://Scenes/background.tscn" id="1_rosm5"]
 [ext_resource type="PackedScene" uid="uid://b3pufbef10eg1" path="res://Scenes/ground.tscn" id="2_rlthf"]
 [ext_resource type="PackedScene" uid="uid://dq4srb6ui0oa" path="res://Scenes/player.tscn" id="3_0vog1"]
-[ext_resource type="Script" uid="uid://hxy2h2c0vani" path="res://Scripts/Player/player_movement.gd" id="4_teiu1"]
+[ext_resource type="PackedScene" uid="uid://dpi4p18psjy7y" path="res://Scenes/decoy.tscn" id="5_a7tq8"]
 [ext_resource type="PackedScene" uid="uid://b3488rsceltox" path="res://Scenes/hud.tscn" id="6_a7tq8"]
 
 [node name="Node" type="Node"]
@@ -20,7 +20,7 @@ position = Vector2(0, -384)
 
 [node name="Player" parent="." instance=ExtResource("3_0vog1")]
 position = Vector2(288, 936)
-script = ExtResource("4_teiu1")
+ghost_node = ExtResource("5_a7tq8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 536)

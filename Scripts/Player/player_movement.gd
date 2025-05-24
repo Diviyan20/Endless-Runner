@@ -3,7 +3,11 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var timer = $BlinkTimer
 @onready var lightning = preload("res://Scenes/lightning.tscn")
-@onready var decoy_scene = preload("res://Scenes/decoy.tscn")
+@onready var ghost_timer = $GhostTimer
+
+@export var ghost_node:PackedScene
+
+
 var on_ceiling = false
 
 # Set these to match your game’s actual floor and ceiling Y positions
@@ -12,9 +16,7 @@ const CEILING_Y = 305
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):  # Space key by default
-		teleport()
-	elif event.is_action_pressed("decoy"):
-		spawn_decoy()
+		teleport()	
 
 func teleport():
 	if on_ceiling:
@@ -50,19 +52,15 @@ func _physics_process(delta):
 		pass
 	else:
 		$AnimatedSprite2D.play("Run")
-		
 
 func _on_blink_timer():
 	sprite.visible = true
-	
-func spawn_decoy():
-	var decoy = decoy_scene.instantiate()
-	decoy.position = global_position
-	decoy.get_node("AnimatedSprite2D").flip_v = sprite.flip_v
-	decoy.get_node("AnimatedSprite2D").play("Decoy Run")  # or whatever animation is active
-	get_parent().add_child(decoy)
 
-	# Connect decoy's timer to free itself
-	var timer = decoy.get_node("Timer")
-	timer.timeout.connect(decoy.queue_free)
-	timer.start()
+func add_ghost():
+	var ghost = ghost_node.instantiate()
+	ghost.set_property(position, $AnimatedSprite2D.scale)
+	get_tree().current_scene.add_child(ghost)
+
+
+func _on_ghost_timer_timeout():
+	add_ghost()

@@ -1,6 +1,16 @@
-extends Node2D
+extends AnimatedSprite2D
 
-@export var move_speed: float = 0.0
+func _ready():
+	ghosting()
 
-func _process(delta):
-	position.x += move_speed * delta
+func set_property(tx_pos, tx_scale):
+	position = tx_pos
+	scale = tx_scale
+
+func ghosting():
+	var tween_fade = get_tree().create_tween()
+	
+	tween_fade.tween_property(self, "self_modulate", Color(1,1,1,0), 0.75)
+	await tween_fade.finished
+	
+	queue_free()
