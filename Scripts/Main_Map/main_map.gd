@@ -34,14 +34,13 @@ func new_game():
 	score = 0
 	show_score()
 	check_high_score()
-	game_running = false
 	$Player.position = PLAYER_START_POS
 	$Player.velocity = Vector2i(0,0)
 	$Camera2D.position = CAM_START_POS
-	$HUD.get_node("Play").show()
 	pass
 
 func _process(delta):
+	game_running = true
 	score += speed
 	if game_running:
 		speed = START_SPEED + score / 5000
@@ -62,11 +61,6 @@ func _process(delta):
 	if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 			$Ground.position.x +=screen_size.x
 			$Ceiling.position.x +=screen_size.x
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		game_running = true
-		$HUD.get_node("Play").hide()
-		pass
 
 func show_score():
 	$HUD.get_node("Score Label").text = "SCORE: " + str(score / SCORE_MODIFIER)
