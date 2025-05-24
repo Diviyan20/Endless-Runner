@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
+@onready var timer = $BlinkTimer
 var on_ceiling = false
 
 # Set these to match your game’s actual floor and ceiling Y positions
@@ -18,8 +19,10 @@ func teleport():
 	else:
 		global_position.y = CEILING_Y
 		sprite.flip_v = true
-
+	
 	on_ceiling = !on_ceiling
+	sprite.visible = false
+	timer.timeout.connect(_on_blink_timer)
 
 	# Trigger camera shake from parent
 	get_parent().start_shake()
@@ -31,3 +34,7 @@ func _physics_process(delta):
 		pass
 	else:
 		$AnimatedSprite2D.play("Run")
+		
+
+func _on_blink_timer():
+	sprite.visible = true
