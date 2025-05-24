@@ -97,5 +97,6 @@ func _on_spike_body_entered(body):
 		game_over()
 
 func game_over():
+	$Player.get_node("AnimatedSprite2D").show()
 	get_tree().paused = true
 	game_running = false

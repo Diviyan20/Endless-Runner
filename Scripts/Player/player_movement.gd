@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var timer = $BlinkTimer
+@onready var lightning = preload("res://Scenes/lightning.tscn")
 var on_ceiling = false
 
 # Set these to match your game’s actual floor and ceiling Y positions
@@ -23,6 +24,18 @@ func teleport():
 	on_ceiling = !on_ceiling
 	sprite.visible = false
 	timer.timeout.connect(_on_blink_timer)
+	
+	# Spawn lightning VFX
+	var vfx = lightning.instantiate()
+	vfx.position = global_position  # Spawn it at player's current location
+	get_parent().add_child(vfx)
+	if on_ceiling:
+		vfx.position.y += 80
+		vfx.position.x += 120
+		vfx.scale.y = -1
+	else:
+		vfx.position.y -= 80 
+		vfx.position.x += 120
 
 	# Trigger camera shake from parent
 	get_parent().start_shake()

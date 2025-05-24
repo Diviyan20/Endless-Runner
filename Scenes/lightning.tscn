@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://rktdemji8o20"]
+
+[ext_resource type="Texture2D" uid="uid://cgxw6h0qeng8n" path="res://Assets/VFX/Lightning_1_512-sheet.png" id="1_wca04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ouyy"]
+atlas = ExtResource("1_wca04")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41j16"]
+atlas = ExtResource("1_wca04")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7knoe"]
+atlas = ExtResource("1_wca04")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqqyr"]
+atlas = ExtResource("1_wca04")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to6io"]
+atlas = ExtResource("1_wca04")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjth1"]
+atlas = ExtResource("1_wca04")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3ip7"]
+atlas = ExtResource("1_wca04")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae0gy"]
+atlas = ExtResource("1_wca04")
+region = Rect2(1024, 1024, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bm3pb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ouyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41j16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7knoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqqyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to6io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjth1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3ip7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ae0gy")
+}],
+"loop": true,
+"name": &"Lightning",
+"speed": 20.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bm3pb")
+animation = &"Lightning"
+autoplay = "Lightning"
+frame_progress = 0.940056

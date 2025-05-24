@@ -160,5 +160,5 @@ position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_bi64h")
 
 [node name="BlinkTimer" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.25
 autostart = true
