@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Endless Runner"
-run/main_scene="uid://b6mv7k8i1r4np"
+run/main_scene="uid://gtbrirjr6mpx"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
