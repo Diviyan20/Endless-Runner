@@ -152,8 +152,8 @@ z_index = 1
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_wpjfl")
-animation = &"Idle"
-autoplay = "Idle"
+animation = &"Run"
+autoplay = "Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)

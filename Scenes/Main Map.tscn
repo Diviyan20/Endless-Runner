@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl4sex851qng4"]
+[gd_scene load_steps=6 format=3 uid="uid://bl4sex851qng4"]
 
+[ext_resource type="Script" uid="uid://c4o35k0qgol1i" path="res://Scripts/Main_Map/main_map.gd" id="1_rkqr0"]
 [ext_resource type="PackedScene" uid="uid://b6mv7k8i1r4np" path="res://Scenes/background.tscn" id="1_rosm5"]
 [ext_resource type="PackedScene" uid="uid://b3pufbef10eg1" path="res://Scenes/ground.tscn" id="2_rlthf"]
 [ext_resource type="PackedScene" uid="uid://dq4srb6ui0oa" path="res://Scenes/player.tscn" id="3_0vog1"]
 [ext_resource type="Script" uid="uid://hxy2h2c0vani" path="res://Scripts/Player/player_movement.gd" id="4_teiu1"]
 
 [node name="Node" type="Node"]
+script = ExtResource("1_rkqr0")
 
 [node name="bg" parent="." instance=ExtResource("1_rosm5")]
 
