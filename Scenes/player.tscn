@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://dq4srb6ui0oa"]
+[gd_scene load_steps=25 format=3 uid="uid://dq4srb6ui0oa"]
 
 [ext_resource type="Texture2D" uid="uid://jbl80bv2rnd7" path="res://Assets/Characters/Manny/T_UE4Robot_IdleStand_D.TGA" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dtla2ui1vgnh2" path="res://Assets/Characters/Manny/T_UE4Robot_Run_D.TGA" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://hxy2h2c0vani" path="res://Scripts/Player/player_movement.gd" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://be6dpv2hj78ry" path="res://Assets/SFX/Teleport Sound.mp3" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("1_cvnsp")
@@ -168,5 +169,8 @@ autostart = true
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true
+
+[node name="Teleport_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vgqql")
 
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

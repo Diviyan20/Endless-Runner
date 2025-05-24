@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var timer = $BlinkTimer
 @onready var lightning = preload("res://Scenes/lightning.tscn")
 @onready var ghost_timer = $GhostTimer
+@onready var teleport_sound: AudioStreamPlayer2D = $Teleport_Sound
 
 @export var ghost_node:PackedScene
 
@@ -15,16 +16,18 @@ const FLOOR_Y = 936
 const CEILING_Y = 305
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):  # Space key by default
+	if event.is_action_pressed("ui_accept"):
 		teleport()	
 
 func teleport():
 	if on_ceiling:
 		global_position.y = FLOOR_Y
 		sprite.flip_v = false
+		teleport_sound.play()
 	else:
 		global_position.y = CEILING_Y
 		sprite.flip_v = true
+		teleport_sound.play()
 	
 	on_ceiling = !on_ceiling
 	sprite.visible = false
