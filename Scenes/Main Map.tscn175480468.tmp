@@ -14,7 +14,7 @@ script = ExtResource("1_rkqr0")
 [node name="Ground" parent="." instance=ExtResource("2_rlthf")]
 position = Vector2(0, 480)
 
-[node name="Ceiling" parent="." instance=ExtResource("2_rlthf")]
+[node name="Ground3" parent="." instance=ExtResource("2_rlthf")]
 position = Vector2(0, -384)
 
 [node name="Player" parent="." instance=ExtResource("3_0vog1")]
