@@ -32,7 +32,7 @@ position = Vector2(960, 536)
 autostart = true
 
 [node name="Spawn Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.8
 autostart = true
 
 [node name="Game BGM" type="AudioStreamPlayer" parent="."]
